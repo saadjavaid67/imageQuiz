@@ -74,7 +74,7 @@ function Homepage() {
                 <Card className="rounded quiz-container">
                     <Card.Body className="quiz-score-container">
                         <h2 className="Score">
-                            Your Score is {score}
+                            Your Score is {score}/6
                         </h2>
                         <Row className="nav-quiz-btn-wrapper">
                             <Button className="nav-quiz-btn btn" onClick={() => navQuizBtnHandler("home")}>Go to Homepage</Button>
