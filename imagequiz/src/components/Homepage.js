@@ -23,11 +23,10 @@ function Homepage() {
             result = "InCorrect";
             resultColor = 'red';
         }
-        setTimeout(() => {
+ 
             
             setCurrentQuestion(currentQuestion + 1);
-            result='';
-    }, 500);
+        
     }
     const navQuizBtnHandler = (e) => {
         if (e === "home") {
