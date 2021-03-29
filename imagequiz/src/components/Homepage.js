@@ -35,6 +35,7 @@ function Homepage() {
             score = 0;
         } else {
             setCurrentQuestion(0);
+            result='';
             score = 0;
         }
     }
