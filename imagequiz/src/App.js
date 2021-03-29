@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import LoginForm from './components/LoginForm';
+import Homepage from './components/Homepage';
 
-function App() {
+
+function App()
+{
+  const adminUser = {
+    email: "admin@admin.com",
+    password: "admin123"
+  }
+
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
+
+  const Login = details =>
+  {
+    if (details.email === adminUser.email && details.password === adminUser.password)
+    {
+      console.log('Logged In!');
+      setUser({
+        email: details.name,
+        password: details.password
+      })
+    } else
+    {
+      console.log('Incorrect Credentials');
+      setError('Incorrect Credentials');
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {(user.email !== "") ? (
+        <Homepage />
+      ) : (
+        <LoginForm Login={Login} error={error} />
+      )}
     </div>
   );
 }
